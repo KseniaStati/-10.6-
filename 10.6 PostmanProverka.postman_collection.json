@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "3011a5cc-33a5-449f-a6a2-006354852395",
+		"name": "10.6 PostmanProverka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25201991"
+	},
+	"item": [
+		{
+			"name": "Подключаемся к сайту. Тест статус кода 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is not 500(server)\", function () {\r",
+							"pm.response.to.have.not.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/pets",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pets"
+					],
+					"query": [
+						{
+							"key": "pets",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Вкладка о НАС. Проверка кода 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is not 500(server)\", function () {\r",
+							"pm.response.to.have.not.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/about",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Вкладка Контакты. Проверка доступа страницы",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code is not 500(server)\", function () {\r",
+							"pm.response.to.have.not.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/contact",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отправка данных в форму приютить животное",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" pm.test(\"Данные отправлены\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});               "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "85",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "err@rr.ru",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "78",
+							"type": "text"
+						},
+						{
+							"key": "middlename",
+							"value": "777",
+							"type": "text"
+						},
+						{
+							"key": "pet",
+							"value": "b094a60f-9471-4019-aafe-381128db9814",
+							"type": "text"
+						},
+						{
+							"key": "phone_num",
+							"value": "+79128887766",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://51.250.89.234/api/pet_shelter_req/",
+					"protocol": "http",
+					"host": [
+						"51",
+						"250",
+						"89",
+						"234"
+					],
+					"path": [
+						"api",
+						"pet_shelter_req",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос для тестирования формы поиска животных по виду и тд",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://51.250.89.234/app",
+			"type": "string"
+		}
+	]
+}
